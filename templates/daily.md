@@ -7,6 +7,12 @@ create date: {{date}}
 
 # {{title}}
 
+`Wake up at`: {{compute_wakeup}}
+
+`Go to bed at`: 
+
+`Actual awake time`: 
+
 ## Time Usage Log
 
 ## Mandatory Schedules
