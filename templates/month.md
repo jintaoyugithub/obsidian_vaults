@@ -1,6 +1,6 @@
 ---
 tags: [
-    - monthly_reports
+    - monthly-reports
 ]
 month: {{month}}
 ---

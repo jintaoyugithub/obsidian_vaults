@@ -1,6 +1,6 @@
 ---
 tags: [
-    - weekly_reports
+    - weekly-reports
 ]
 start date: {{week_start}}
 end date: {{date}}
