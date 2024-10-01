@@ -19,6 +19,6 @@ create date: {{date}}
     
 ## Personal TODO Lists
 
-Check the [[TODO]] list for more info!
+Check the [[TODO-Main]] list for more info!
 
 ## Study notes
