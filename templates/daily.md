@@ -15,7 +15,25 @@ create date: {{date}}
 
 ## Time Usage Log
 
+- [ ] morning routine 
+
+
+
+- [ ] before bed routine
+
 ## Mandatory Schedules
+
+- [ ] Morning Routine 
+    - [ ] Wash up
+    - [ ] breakfast
+    - [ ] walk out for 10 min (optional)
+
+
+
+
+- [ ] Before Bed Routine
+    - [ ] Wash up
+    - [ ] Clean all the dishes
     
 ## Personal TODO Lists
 
