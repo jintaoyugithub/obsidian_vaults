@@ -15,11 +15,6 @@ create date: {{date}}
 
 ## Time Usage Log
 
-- [ ] morning routine 
-
-
-
-- [ ] before bed routine
 
 ## Mandatory Schedules
 
