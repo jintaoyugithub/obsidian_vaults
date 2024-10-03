@@ -18,8 +18,9 @@ def extract_data_from_markdown(file_path):
 
     # 打印结果
     for match in matches:
-        top, branch, time = match
-        print(f"Top: {top}, Branch: {branch}, Time: {time} mins")
+        print(match)
+        # top, branch, time = match
+        # print(f"Top: {top}, Branch: {branch}, Time: {time} mins")
 
 
 # 示例文件路径

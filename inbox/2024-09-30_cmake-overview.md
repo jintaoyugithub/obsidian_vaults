@@ -1,7 +1,6 @@
 ---
-tags: [
+tags: 
     - cmake
-]
 create date: 2024-09-30
 ---
 

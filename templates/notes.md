@@ -1,5 +1,5 @@
 ---
-tags: []
+tags:
 create date: {{date}}
 ---
 

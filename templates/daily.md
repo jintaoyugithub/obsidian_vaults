@@ -1,7 +1,6 @@
 ---
-tags: [
+tags: 
     - daily-notes
-]
 create date: {{date}}
 ---
 

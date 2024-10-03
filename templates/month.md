@@ -1,7 +1,6 @@
 ---
-tags: [
+tags: 
     - monthly-reports
-]
 month: {{month}}
 ---
 

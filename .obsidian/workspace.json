@@ -11,8 +11,12 @@
             "id": "533f75a4288854ce",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "notes/daily-notes/2024-10-03.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "notes/daily-notes/2024-10-03.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "notes/daily-notes/2024-10-03.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "notes/daily-notes/2024-10-03.md"
+              }
             }
           }
         ]
@@ -140,6 +148,14 @@
   },
   "active": "533f75a4288854ce",
   "lastOpenFiles": [
+    "notes/daily-notes/2024-10-01.md",
+    "notes/daily-notes/2024-09-29.md",
+    "notes/daily-notes/2024-10-02.md",
+    "notes/daily-notes/2024-09-30.md",
+    "notes/daily-notes/2024-10-02.md~",
+    "notes/daily-notes/2024-09-28.md",
+    "inbox/2024-09-30_git-overview.md",
+    "inbox/2024-10-03_regular-explanation.md",
     "notes/note_takings/examples.md",
     "notes/note_takings/obsidian.md",
     "notes/note_takings/glow.tar.gz",
@@ -165,7 +181,6 @@
     "templates/daily_note_template.md",
     "Pasted image 20240928115833.png",
     "assets/imgs",
-    "assets",
     "random.md"
   ]
 }

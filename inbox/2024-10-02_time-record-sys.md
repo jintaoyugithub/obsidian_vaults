@@ -1,7 +1,6 @@
 ---
-tags: [
+tags: 
     - project
-]
 create date: 2024-10-02
 ---
 
@@ -26,16 +25,27 @@ I wanna use python to extract the table data from a markdown file, and accumulat
 
 The workflow may look like:
 
-```python
-for path in filepaths:
-    open(path)
+1. Open and process the file one by one (with argparse lib)
+2. Find all the necessary info with re lib
+3. Accumulate the time for the same branches
+4. Create a new markdown file and open it, generate a table with the output result we just got
+5. we can manually insert the weekly table
 
-    if(fail_to_open):
-        print(...)
-
-```
 
 I gonna use [[regualr-explanation]] to find and extract the content from a table in the markdown file.
+
+For find all the key infos:
+
+- Top categories: \|\s#\w+\/
+- Branches: \/\w+
+- Time: \|\s\d+
+
+However the condition of this can work is that we only have one table in the markdown files and the table should be like this:
+
+| Categories     | Events | Time(in mins) |
+|----------------|--------|---------------|
+| #topCat/branch | Name   | Time used     |
+
 
 ## References
 
