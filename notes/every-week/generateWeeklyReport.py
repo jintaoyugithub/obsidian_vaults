@@ -1,6 +1,8 @@
+import os
 import re
 import glob
 import argparse
+import datetime
 from py_markdown_table.markdown_table import markdown_table
 
 '''
@@ -11,6 +13,8 @@ The extracted data should looks like:
         ...
 ]
 '''
+
+
 def CreateMDTable(filepaths):
     # Open and read the file
     data = []
@@ -20,7 +24,7 @@ def CreateMDTable(filepaths):
             md_content = file.read()
 
         # Extract the necessary info with regular expression
-        find_headers = r'\|\s([A-Z]\w+)'
+        find_headers = r'\|\s([A-Z]\w+)\s+\|\s([A-Z]\w+)\s+\|\s([A-Z]\w+)\(in mins\)'
         find_contents = r'\|\s#(\w+)\/(\w+).*?\|.*?\|\s(\d+)'
 
         headers = re.findall(find_headers, md_content)
@@ -28,32 +32,33 @@ def CreateMDTable(filepaths):
 
         # make sure the contents are not empty
         if contents:
-            # extract the data from the header
-            Top, Branch, Time = headers
+            # extract the data from the found first header
+            Top, Branch, Time = headers[0]
             # construct the table with the data
             for row in contents:
                 top, branch, time = row
                 time = int(time)
                 # check if the branch is already exist
                 found = False
-                for item in data:
-                    if item[Branch] == branch:
-                        item[Time] += time
-                        found= True
-                        break
+                if data:
+                    for item in data:
+                        if item[Branch] == branch:
+                            item[Time] += time
+                            found = True
+                            break
 
                 if not found:
                     data.append({
                         Top: top,
                         Branch: branch,
                         Time: time
-                })
+                    })
         else:
             print("empty contents")
 
     # create the markdown table
-    markdown = markdown_table(data).get_markdown()
-    print(markdown)
+    markdown_tb = markdown_table(data).get_markdown()
+    return markdown_tb
 
 
 def GenerateFilePath():
@@ -76,13 +81,37 @@ def GenerateFilePath():
         print("No files matched.")
 
 
+def ComputeCurrentWeek():
+    # 获取当前日期
+    current_date = datetime.datetime.now()
+
+    # 获取当前年份
+    current_year = current_date.year
+
+    # 获取ISO周数（ISO标准：每年第一周是包含第一个星期四的周）
+    current_week_number = current_date.isocalendar()[1]
+
+    return str(current_week_number) + "-" + str(current_year) + '.md'
+
+
+def WriteContent2File(dir, name, content):
+    # make sure the folder exist, if not create a new one
+    os.makedirs(dir, exist_ok=True)
+
+    # Create full path
+    file_path = os.path.join(dir, name)
+
+    # Create the file and write the content to it
+    with open(file_path, 'w', encoding='utf-8') as file:  # 使用 utf-8 编码
+        file.write(content)
+
+
 def Run():
     files = GenerateFilePath()
-    CreateMDTable(files)
+    mdtb = CreateMDTable(files)
+    current_week = ComputeCurrentWeek()
+    WriteContent2File('../weekly-reports', current_week, mdtb)
 
 
 if __name__ == "__main__":
     Run()
-
-
-
