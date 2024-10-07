@@ -1,5 +1,3 @@
-#!/opt/homebrew/bin python3
-
 import re
 
 # 定义读取文件和提取内容的函数
@@ -20,7 +18,7 @@ def extract_data_from_markdown(file_path):
     for match in matches:
         print(match)
         # top, branch, time = match
-        # print(f"Top: {top}, Branch: {branch}, Time: {time} mins")
+       # print(f"Top: {top}, Branch: {branch}, Time: {time} mins")
 
 
 # 示例文件路径
