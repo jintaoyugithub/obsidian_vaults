@@ -11,6 +11,3 @@ end date: {{date}}
 
 ## Time usage analyze
 
-| Categories | branch | Time |
-|------------|--------|------|
-

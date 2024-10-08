@@ -14,6 +14,7 @@ The extracted data should looks like:
 ]
 '''
 
+
 def CleanTable(table):
     # clean the unnecessary lines
     cleaned_table = ''
@@ -82,9 +83,9 @@ def GenerateFilePath():
 
     # 输出匹配的文件
     if all_files:
-        root = './'
+        # root = './'
         for i in range(len(all_files)):
-            all_files[i] = root + all_files[i]
+            all_files[i] = all_files[i]
             print("Matched file: " + all_files[i])
         return all_files
     else:
