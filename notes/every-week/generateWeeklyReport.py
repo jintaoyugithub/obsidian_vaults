@@ -14,6 +14,16 @@ The extracted data should looks like:
 ]
 '''
 
+def CleanTable(table):
+    # clean the unnecessary lines
+    cleaned_table = ''
+    for line in table.splitlines():
+        if line.startswith('|'):
+            cleaned_table += line + '\n'
+
+    print('\n' + cleaned_table)
+    return cleaned_table
+
 
 def CreateMDTable(filepaths):
     # Open and read the file
@@ -91,7 +101,7 @@ def ComputeCurrentWeek():
     # 获取ISO周数（ISO标准：每年第一周是包含第一个星期四的周）
     current_week_number = current_date.isocalendar()[1]
 
-    return str(current_week_number) + "-" + str(current_year) + '.md'
+    return "week-" + str(current_week_number) + "-" + str(current_year) + '.md'
 
 
 def WriteContent2File(dir, name, content):
@@ -109,8 +119,9 @@ def WriteContent2File(dir, name, content):
 def Run():
     files = GenerateFilePath()
     mdtb = CreateMDTable(files)
+    cleaned_tb = CleanTable(mdtb)
     current_week = ComputeCurrentWeek()
-    WriteContent2File('../weekly-reports', current_week, mdtb)
+    WriteContent2File('../weekly-reports', current_week, cleaned_tb)
 
 
 if __name__ == "__main__":
