@@ -4,9 +4,18 @@ tags:
 create date: 2024-09-30
 ---
 
-# CMake Common Issue
+# CMake FAQ and Troubleshooting
 
-- Successfully compiled but cannot find the executable file
+## Overview
+
+| ID         | Descriptions |
+|------------|--------------|
+| [[#^test]] | sdf          |
+
+
+## Issues
+
+1. Successfully compiled but cannot find the executable file ^test
 
 That is maybe you don't specify the output dir so that the system take the output dir of some of your submodules by default, for example llgl.
 
@@ -17,3 +26,5 @@ set_target_properties(target PROPERTIES RUNTIME_OUTPUT_DIRECTORY /path/to/output
 ```
 
 **Tips**: check the printed info of compilation, it will show where is the executable file
+
+2. 
