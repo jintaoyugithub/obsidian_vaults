@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/daily-notes/2024-10-03.md",
+                "file": "inbox/2024-10-14_cpp-polymorphism.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/daily-notes/2024-10-03.md",
+                "file": "inbox/2024-10-14_cpp-polymorphism.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/daily-notes/2024-10-03.md",
+                "file": "inbox/2024-10-14_cpp-polymorphism.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/daily-notes/2024-10-03.md"
+                "file": "inbox/2024-10-14_cpp-polymorphism.md"
               }
             }
           }
