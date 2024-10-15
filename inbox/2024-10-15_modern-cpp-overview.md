@@ -11,6 +11,8 @@ urls:
 
 # Modern cpp overview
 
+[[cpp-RTTI]]
+[[cpp-polymorphism]]
 [[cpp11]]
 [[cpp17]]
 

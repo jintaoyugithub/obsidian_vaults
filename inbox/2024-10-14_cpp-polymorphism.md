@@ -141,9 +141,7 @@ Think about if inherit and polymorphism are needed in you project, because virtu
 
 In cpp, we have `runtime abstraction` and `compile-time abstraction`, **virtual func** is one solution for the first one and **template** is the solution for the second one.
 
-2. std::function vs. virtual functions
-
-More info check [[cppstd]].
+2. [[stdfunction]] vs. virtual functions
 
 Seems like a lot of people advise me to use `std::function` instead of `virtual function`.
 
