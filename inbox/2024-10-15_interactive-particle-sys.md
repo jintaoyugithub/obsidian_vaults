@@ -67,3 +67,107 @@ Question:
 - flowmap
 - 2d fliud simulation
 - ray marching (optional)
+- sdf
+
+使用少量的paritcle来做fliud simulation，然后将结果写入一张texture，再在这张texture上做noise 
+
+这个交互系统最重要的是我要如何记录角色的位置，以及什么时候该将交互信息写入纹理
+
+- scene capture，也就是一个在角色脚下的摄像机，记录角色的高度，用这个高度来和场景中其他物体的高度做比较，来确认是否要做交互
+
+在ue中还使用到了runtime virtual texture, check the videos:
+
+[Pathways & Roads using RVTs](https://www.youtube.com/watch?v=momc4h5J19Y)
+
+- 像[Prismatiscape Interaction Plugin](https://www.youtube.com/watch?v=OgXrpMdpkHA)视频中提到的，完全使用material和runtime virtual texture来做交互
+
+但是opengl中并没有runtime virtual texture这种东西，这是引擎对大量加在纹理做的一种优化技术
+
+virtual texture 在这里的作用就是用来构建虚拟高度场
+
+我觉得现在的工作顺序就是
+
+1. 完成2d eulerian fliud sim 
+2. 先采用scene capture的形式来做交互，rvt可以考虑作为一个bonus
+3. 最后考虑使用什么来做showcase，ray marching clouds?
+
+那粒子系统还有用吗?
+
+可以把粒子系统中的粒子更换material/shader吗，这样后续就可以apply ray marching clouds的shader上去了
+
+**References found today**:
+
+- [为Unity实现Runtime Virtual Texture](https://zhuanlan.zhihu.com/p/452875365)
+- [UE4 Runtime Virtual Texture 实现机制及源码解析](https://zhuanlan.zhihu.com/p/143709152)
+- [Virtual Texture（虚拟纹理）的理解和应用](https://www.bilibili.com/video/BV1KK411L7Rg/?vd_source=0fcddcb3612de862c70bcf69ba163263)
+- [Virtual Texture](https://zhuanlan.zhihu.com/p/676075965)
+
+[浅谈Virtual Texture](https://zhuanlan.zhihu.com/p/138484024)
+
+Unreal Virtual Texture 源码导读https://zhuanlan.zhihu.com/p/147213120
+
+Unity GPU collision detection
+https://github.com/drzhn/UnityGpuCollisionDetection
+
+Chapter 32. Broad-Phase Collision Detection with CUDA
+https://developer.nvidia.com/gpugems/gpugems3/part-v-physics-simulation/chapter-32-broad-phase-collision-detection-cuda
+
+Unity Raymarching Collision
+https://github.com/hecomi/UnityRaymarchingCollision
+
+Real-time dreamy Cloudscapes with Volumetric Raymarching
+https://blog.maximeheckel.com/posts/real-time-cloudscapes-with-volumetric-raymarching/
+
+Collision Detection for Raymarch Objects
+https://www.floneyyang.com/post/collision-detection-for-raymarch-objects
+
+my experience as a frontend engineer
+https://blog.maximeheckel.com/
+
+Moebius-style post-processing and other stylized shaders
+https://blog.maximeheckel.com/posts/moebius-style-post-processing/
+
+An Introduction to Raymarching
+https://typhomnt.github.io/teaching/ray_tracing/raymarching_intro/
+
+Intro to Vertex Colour [Unreal Engine]
+https://www.youtube.com/watch?v=vIA2oU4JNmY&t=24simulations
+
+Runtime Vertex Paint || The Best Bang-for-Buck Plugin
+https://www.youtube.com/watch?v=1RSP5m52vPM
+
+Niagara Collisions | Niagara [UE5]
+https://www.youtube.com/watch?v=vVuHxl7w2bA
+
+Vector Fields in Computer Graphicschrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://perso.liris.cnrs.fr/david.coeurjolly/teaching/ENS-M2-2020/VectorField-export-novideos.pdf
+
+Vector Field Visualizationchrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://cgl.ethz.ch/teaching/former/scivis_07/Notes/stuff/StuttgartCourse/VIS-Modules-07-Vector_Field_Visualization.pdf
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://cgl.ethz.ch/teaching/former/scivis_07/Notes/stuff/StuttgartCourse/VIS-Modules-07-Vector_Field_Visualization.pdf
+
+Vector Field Visualization
+https://vcg.iwr.uni-heidelberg.de/research/vectorvis/
+
+Visualization of a Vector Field
+https://medium.com/researchsummer/visualization-of-a-vector-field-9402615c780a
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://15462.courses.cs.cmu.edu/fall2016content/lectures/03_vectorcalc/03_vectorcalc_slides.pdf
+
+But How DO Fluid Simulations Work?
+https://www.youtube.com/watch?v=qsYE1wMEMPA&t=47simulations
+
+Real-time Eulerian fluid simulation on a Macbook Air, using GPU shaders
+https://www.youtube.com/watch?v=x6mcua0HOJs
+
+17 - How to write an Eulerian fluid simulator with 200 lines of code.
+https://www.youtube.com/watch?v=iKAVRgIrUOU
+
+Coding Challenge #132: Fluid Simulation
+https://www.youtube.com/watch?v=alhpH6ECFvQ
+
+How to use Runtime Virtual Texturing (RVT) in Unreal Engine
+https://www.youtube.com/watch?v=Ft2kzfxV7DU
+
+Runtime Virtual Texture Research Notes
+https://github.com/ibbles/LearningUnreal/blob/main/Runtime%20Virtual%20Texture%20Write%20From%20C%2B%2B.md
+
