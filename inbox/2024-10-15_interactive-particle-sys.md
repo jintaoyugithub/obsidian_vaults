@@ -50,5 +50,20 @@ Question:
 详细可以参考[FluidNinjia volumetrix update](https://www.youtube.com/watch?v=jF4tXjPhw_c) at 0:15
 
 
+### 2024-10-16
 
+可不可以把生成的带有cloud material的ray marching的cube变成particle，这样就可以即有两个object之间的smooth融合又有粒子死亡带来的云朵消散。
 
+参考一下[Chris' Graphics Blog](https://wallisc.github.io/rendering/2020/05/02/Volumetric-Rendering-Part-1.html)
+
+怎么判断它up轴上的运动呢？
+
+使用一个3d texture来记录3d fliud simulation的结果或者是记录vector field，然后用这个纹理来对云层采样？
+
+比如说我们将一个cub分割成8x8的小格子，然后每个格子记录着当前粒子通过的平均的velocity vector
+
+我觉得先可以看看不同的做法找找灵感，比如说
+
+- flowmap
+- 2d fliud simulation
+- ray marching (optional)
