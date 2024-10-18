@@ -2,6 +2,12 @@
 
 ## Quick Start
 
+**Notes**: 
+
+In order to make the obsidian.nvim work with obsidian app, there are some naming rules for the files you have to follow:
+- [[for example]] != [[for-example]]
+- no date or other info in the filename, [[for-example_2024-10-18]] is not allowed
+
 `Scripts`:
 
 1. on <title>
@@ -20,3 +26,4 @@ It does requirment some 3rd libs like:
 - py_markdown_table
 
 Make sure you install all the dependencies when you run the scripts!
+

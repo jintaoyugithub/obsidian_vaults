@@ -159,7 +159,7 @@ https://www.youtube.com/watch?v=qsYE1wMEMPA&t=47simulations
 Real-time Eulerian fluid simulation on a Macbook Air, using GPU shaders
 https://www.youtube.com/watch?v=x6mcua0HOJs
 
-17 - How to write an Eulerian fluid simulator with 200 lines of code.
+How to write an Eulerian fluid simulator with 200 lines of code.
 https://www.youtube.com/watch?v=iKAVRgIrUOU
 
 Coding Challenge #132: Fluid Simulation
@@ -170,4 +170,25 @@ https://www.youtube.com/watch?v=Ft2kzfxV7DU
 
 Runtime Virtual Texture Research Notes
 https://github.com/ibbles/LearningUnreal/blob/main/Runtime%20Virtual%20Texture%20Write%20From%20C%2B%2B.md
+
+### 2024-10-17
+
+现在有点不确定为什么要把fluid sim的结果写到一张纹理里面，然后用这张纹理来决定云的变动
+
+我直接在fluid sim的结果上直接cloud rendering不就可以了，还剩下了读写纹理的步骤
+
+比如说我直接在一个3d bounding box中利用3d worly noise生成一些density，然后用这个density来做模拟就可以了
+
+但是对于超大scale云层的渲染，将渲染和流体模拟在一起算会不会太消耗性能了
+
+但是这个时候我用一个小一点的cube来做模拟，然后将结果写入纹理，最后用这个low resolution的纹理来计算云体的变化，可行吗？
+后续的优化可以考虑用runtime virtual texture来做对大scale云的模拟计算，这样那个小cube就只会更新能看的到的地方的流体模拟结果了
+
+但是目前必须需要做的事情有什么？
+
+- 搞清楚欧拉流体模拟
+- 利用compute shader来加速方程求解
+
+那这跟我在[ue5 inetraction plugin](https://www.youtube.com/watch?v=3VfhvULu2k4&t=17s)视频中看到的交互系统有什么关系？
+
 
