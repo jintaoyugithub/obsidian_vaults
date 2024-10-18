@@ -9,6 +9,8 @@ urls:
 
 [[Ray-Marching]]
 [[Flowmap]]
-[[Fliud simulation]]
-[[Signed distance field]]
+[[Fliud-simulation]]
+[[Signed-distance-field]]
+[[Compute-Shader]]
+[[Batches-Rendering]]
 
