@@ -122,7 +122,7 @@ def Run():
     mdtb = CreateMDTable(files)
     cleaned_tb = CleanTable(mdtb)
     current_week = ComputeCurrentWeek()
-    WriteContent2File('../weekly-reports', current_week, cleaned_tb)
+    WriteContent2File('../notes/weekly-reports', current_week, cleaned_tb)
 
 
 if __name__ == "__main__":

@@ -60,42 +60,39 @@ It's easier to explain these two concepts in one dimension first, and it might i
 
 There are some examples about how you use these methods to access the data:
 
-`In host program`: 
+`Using image`: 
+
+- host program
 
 ```cpp
-/// Using image
-/**
-* @brief 
-* @parameter
-*/
-glBindImageTexture()
+/// Create a image object by using texture
+GLuint _ib;
+glGenTextures(1, &_ib);
+glActiveTexture(GL_TEXTURE0);      // you can bind any texture slot you want
+glBindTexture(GL_TEXTURE_2D, _ib); 
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 /**
 * @brief 
 * @parameter
 */
-glDispatchCompute()
+glTexImage2D()
 
-
-/// Using ssbo
-glBindBuffer();
-glBufferData();
 /**
 * @brief 
 * @parameter
 */
-glBindBufferBase(GL_SHADER_STORAGE_BUFFER, _ssbo);
-
-
-/// Using texture: TODO
+glBindImageTexture();
 ```
 
-`In the shader`: ^computeShaderExample
+- shader code ^computeShaderExample
 
 ```cpp
 #version 430
 
-/// Step 1:
 /**
 * @brief Specify the work group size
 * @parameter local_size_x thread number in x dimension
@@ -104,29 +101,17 @@ glBindBufferBase(GL_SHADER_STORAGE_BUFFER, _ssbo);
 */
 layout(local_size_x = 4, local_size_y = 4, local_size_z = 4) in;
 
-/// Step 2:
 /**
 * @brief Specify how compute shader access the data with the images
 * @parameter rgb32f Image data format
 * @parameter binding Bind to the images slot
 * @varName gimage2D is a general name for 3 diff types: image2D(float), iimage2D(int) and uimage2D(uint)
 */
-layout(rgb32f, binding = 0) gimage2D _imageName;
-
-/**
-* @brief Specify how compute shader access the data with the ssbo
-* @parameter std430 Standardized memory layout format
-* @parameter binding Bind to the buffer slot which specified in host program with glBindBufferBase()
-*/
-layout(std430, binding = 0) buffer _bufferNameIn {
-    // buffer data, for example
-    uvec3 data[];
-} _bufferNameOut;
-
+layout(rgb32f, binding = 0) uniform gimage2D _imageName;
 
 /// Step 3
 void main() {
-    /// functions that read/write to images
+    /// Functions that read/write to images
     /**
     * @brief read data from image
     * @parameter img image type from image2D, iimage2D and uimage2D
@@ -139,11 +124,146 @@ void main() {
     * @parameter img image type from image2D, iimage2D and uimage2D
     * @parameter coord integer pixel coord
     */
-    void imageStore( gimage img, image_coord coord )
-    
+    void imageStore( gimage img, image_coord coord, value val )
+}
+```
 
+`Using texture`: 
+
+- host program
+
+```cpp
+/// Create a texture
+GLuint _texture;
+glGenTextures(1, &_texture);
+glActiveTexture(GL_TEXTURE0); // you can bind any texture slot you want
+glBindTexture(GL_TEXTURE_2D, _texture); 
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+/**
+* @brief 
+* @parameter
+*/
+glTexImage2D()
+
+/**
+* @brief Generate mipmap for the texture
+* @parameter Specify a texture type
+*/
+glGenerateMipmap(GL_TEXTURE_2D);
+
+```
+
+- shader code
+
+```cpp
+#version 430
+
+/**
+* @brief Specify the work group size
+* @parameter local_size_x thread number in x dimension
+* @parameter local_size_y thread number in y dimension
+* @parameter local_size_z thread number in z dimension
+*/
+layout(local_size_x = 4, local_size_y = 4, local_size_z = 4) in;
+
+/**
+* @brief Specify how compute shader access the data with the images
+* @parameter binding Bind to the images slot
+*/
+layout(binding = 0) uniform sampler2D _textureName;
+
+
+/// Step 3
+void main() {
+    // sample the data at position (0.5, 0.5) from the texture
+    vec4 texel = texture(_textureName, vec2(0.5, 0.5));
+}
+```
+
+`Using shader storage buffer object`: 
+
+- host program
+
+```cpp
+// declare your custom data, for example a array
+int data[size];
+
+GLuint ssbo;
+glGenBuffers(1, &ssbo);
+glBindBuffer(GL_SHADER_STORAGE_BUFFER, ssbo);
+glBufferData(
+    GL_SHADER_STORAGE_BUFFER,
+    sizeof(data),
+    data,
+    GL_STATIC_READ  // read/write
+);
+
+/**
+* @brief 
+* @parameter buffer type
+* @parameter slot you specify in the shader code with binding keyword
+* @parameter shader storage buffer object id
+*/
+glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, ssbo);
+```
+
+- shader code
+
+```cpp
+#version 430
+
+/**
+* @brief Specify the work group size
+* @parameter local_size_x thread number in x dimension
+* @parameter local_size_y thread number in y dimension
+* @parameter local_size_z thread number in z dimension
+*/
+layout(local_size_x = 4, local_size_y = 4, local_size_z = 4) in;
+
+/**
+* @brief Specify how compute shader access the data with the ssbo
+* @parameter std430 Standardized memory layout format
+* @parameter binding Bind to the buffer slot which specified in host program with glBindBufferBase()
+*/
+layout(std430, binding = 0) buffer _bufferNameIn {
+    // buffer data, for example
+    int data[];
+} _bufferNameOut;
+
+void main() {
     // functions that read/write to ssbo
     _bufferNameOut.data[index] = ...
+}
+```
+
+### In the rendering loop
+
+There are some steps you need to do to make compute shader work
+
+```cpp
+while( isRendering ) {
+    /**
+    * @brief use the compute shader program
+    * @parameter the program id
+    */
+    glUseProgram(computeShader);
+
+    /**
+    * @brief 
+    * @parameter
+    * @parameter
+    * @parameter
+    */
+    glDispatchCompute();
+
+    /**
+    * @brief Make sure the data can be accessed after the compute shader finish all the tasks
+    */
+    glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
 }
 ```
 
@@ -178,9 +298,18 @@ while texture does
 
 *5. Diff between fragment shader and compute shader?*
 
+Fragment shader has specific input and output while the input/output of a compute shader can be anything.
+
 **Note** that compute shader != fragment shader to some extent
 
 *6. When we use a read_write image, how can we avoid the parallel conflict?*
+
+By using atomic operations, check [OpenGL 4.5 References](https://registry.khronos.org/OpenGL-Refpages/gl4/) for more info
+
+*7. Diff between using image and texture to access the data in compute shader* 
+
+- Texture is read only while you can read/write to a image
+- Image doesn't have mipmap but texture does
 
 ## Glossary
 

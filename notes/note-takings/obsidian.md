@@ -1,7 +1,6 @@
 ---
-tags: [
+tags: 
     - note_takings
-]
 create date: 2024-09-29
 ---
 
@@ -59,7 +58,17 @@ For example, I'm learning std lib of c++, I can create a hashtag #cpp/std and wh
 
 Or we encounter some error or bug when writing c++, however it's difficult for us to give them a unified classification. At this time, labeling them will #cpp/error/link or #cpp/error/compile make it easier for us to find them.
 
-## images
+
+## Images
 
 ![test.png](assets/imgs/test.png)
 
+## Math expression
+
+Pretty similar to the original markdown file, obsidian use `$..$` and `$$...$$` to write the math formula, for example
+
+$a = b + c$
+
+$$\begin{vmatrix}a & b\\
+c & d
+\end{vmatrix}=ad-bc$$
