@@ -27,4 +27,4 @@ set_target_properties(target PROPERTIES RUNTIME_OUTPUT_DIRECTORY /path/to/output
 
 **Tips**: check the printed info of compilation, it will show where is the executable file
 
-2. 
+2. `Clang power tool` can not work with `Visual Studio 2022` 
