@@ -46,14 +46,14 @@ Find another empty index to store the elements in the hash table.
 
 ## LeetCode Questions Overview ^hashTableLeetCode
 
-| Notes link                       | Description                                                  | Level | Quick Tips                                 | State    |
-|----------------------------------|--------------------------------------------------------------|-------|--------------------------------------------|----------|
-| [[anagram_2024-11-24]]           | determine if b is a's anagram                                | Easy  | None                                       | Done     |
-| [[find-intersection_2024-11-24]] | find the intersection of two vectors                         | Easy  | None                                       | Done     |
-| [[happy-num_2024-11-30]]         | determine if a num is happy num                              | Easy  | Optimize with unordered list               | Done     |
-| [[two-sum_2024-11-30]]           | find two elements which the sum equals to the target         | Easy  | 一个数的和可转化成一个已知数找另一个未知数 | No clue  |
-| [[four-sum-count_2024-12-02]]    | find how many combinations of four nums euqal to 0           | Mid   | Same as above                              | Not Done |
-| [[can-construct_2024-12-02]]      | determine if B can be constructed by using the elements in A | Easy  | optimize with array instead of map         | Done     |
+| Notes link                       | Description                                                  | Level | Quick Tips                         | State    |
+| -------------------------------- | ------------------------------------------------------------ | ----- | ---------------------------------- | -------- |
+| [[anagram_2024-11-24]]           | determine if b is a's anagram                                | Easy  | None                               | Done     |
+| [[find-intersection_2024-11-24]] | find the intersection of two vectors                         | Easy  | None                               | Done     |
+| [[happy-num_2024-11-30]]         | determine if a num is happy num                              | Easy  | Optimize with unordered list       | Done     |
+| [[two-sum_2024-11-30]]           | find two elements which the sum equals to the target         | Easy  | 一个数的和可转化成一个已知数找另一个未知数              | No clue  |
+| [[four-sum-count_2024-12-02]]    | find how many combinations of four nums euqal to 0           | Mid   | Same as above                      | Not Done |
+| [[can-construct_2024-12-02]]     | determine if B can be constructed by using the elements in A | Easy  | optimize with array instead of map | Done     |
 
 
 

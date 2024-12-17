@@ -13,7 +13,9 @@ urls:
 
 [[hash-table_2024-11-22#^hashTableLeetCode]]
 
-[[string_2024-12-02]]
+[[string_2024-12-02#^stringLeetCode]]
+
+[[dual-pointer_2024-12-04#^dualPointerLeetCode]]
 
 [[stackqueue_2024-12-02]]
 

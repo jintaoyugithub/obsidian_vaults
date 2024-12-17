@@ -42,4 +42,4 @@ public:
 
 `Performance`: very bad, it can be optimized with `array` of `unordered map` instead of `unordered multiset`, for example you can use an 26 array to record how many time each letter appear, or you can use map to store how many times correspoinding letter appears.
 
-![can-construct performance.png](assets/imgs/can-construct performance.png)
+![can-construct performance.png](assets/imgs/can-construct-performance.png)
