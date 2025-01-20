@@ -44,6 +44,10 @@ Other options?
     - hard to determine if the hole need to be filled or not
     - work with UVs?
 
+## Mesh data streaming
+
+To make sure there is no crack in the mesh, full cut of DAG is needed.
+
 
 ## Unfamiliar terminology
 
@@ -54,4 +58,9 @@ Tech used in convention from poly to voxels, is that means every quad will be re
 - Hard surface modeling & organic surface modeling
 
 Check [What's hard surface modeling](https://blog.wingfox.com/what-is-hard-surface-modeling/)
+
 - Video random-access memory (VRAM)
+
+- LOD error
+
+- ByteAddressBuffer on GPU
