@@ -4,7 +4,8 @@ tags:
 create date: 2025-01-16
 urls:
     - [Input assembler stage](https://learn.microsoft.com/en-us/windows/uwp/graphics-concepts/input-assembler-stage--ia-)
-    - [mesh optimizer](https://github.com/zeux/meshoptimizer)
+    - [Mesh optimizer](https://github.com/zeux/meshoptimizer)
+    - [Turing arch - from gpu-driven to mesh shader](https://zhuanlan.zhihu.com/p/514840683)
 ---
 
 # Mesh shader
@@ -21,7 +22,22 @@ say this vertex(vertex id) should belong to this primitive(primitive id)
 
 4. vertex shader -> tessellation -> geometry shader
 
+mesh data is processed in the gpu as vertices, batches or primitives, we don't have the access to the whole mesh.
+
+not be able to subtract the geometry
+
 - Mesh shader pipeline
+
+You can take mesh shader pipeline with `compute shader with hardware rasterazation`
+
+in traditional pipeline, each vertex will have one thread to process it, one thread output one vertex, but in mesh shader pipeline, think processing as a group way, i.e. one thread group output a primitive or bunch of vertices
+
+**what's the differenct with batch rendering?**
+
+
+
+mesh shader pipeline require additional stage to split mesh into meshlets.
+
 
 Process the vertex first and then assemble the processed vertices while the rest are still on operating
 
