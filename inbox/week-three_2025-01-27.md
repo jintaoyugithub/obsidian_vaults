@@ -12,7 +12,7 @@ urls:
 - [x] goal doc
 - [ ] [[#^micro-mesh-const]] paper
 - [x] play around micromesh-tools
-- [ ] direct x 12 ?
+- [~] direct x 12 ?
 - [ ] micro mesh presentation videos
 
 ## 1.27
@@ -58,10 +58,14 @@ remove the compilation of `pathtrace.rchit` in cmakelists.txt file and some corr
 
 ## 1.31
 
+- [ ] part of micro-mesh construction
+- [ ] falcor sample application code overview
+- [ ] slang user guide
 
 ## Notes
 
 [[micro-mesh_2025-01-29|micro-mesh]]
+[[slang_2025-01-31|slang]]
 
 ## References
 

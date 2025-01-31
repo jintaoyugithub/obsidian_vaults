@@ -28,13 +28,17 @@ There are 3 main parts that users will use:
 
 ## Scene/Shader
 
+## Code Structure
+
+| class name | description                                                        | inheritance relationship           |
+|------------|--------------------------------------------------------------------|------------------------------------|------------|
+| `Object`   | The foundation of an [[referenced-counted-object-system_2025-01-31 | referenced-counted object system]] | Base class |
+
 ## Examples
 
 1. Falcor with mesh shader
 
 may be I can split `Meshlet Viewer Example`in [DirectX 12 mesh shader example](https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12MeshShaders) into different render pass and reproduce it in the Falcor.
-
-
 
 ## Tips
 
