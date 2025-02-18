@@ -18,7 +18,9 @@ urls:
 
 3. input assembler stage read, assemble the data and pass to the rest stages in the pipeline
 
-say this vertex(vertex id) should belong to this primitive(primitive id)
+>say this vertex(vertex id) should belong to this primitive(primitive id)
+
+if this data is for like `geometry shader`, why we assemble the primitives this early, we can wait actually! `Vertex shader` is based on vertices not primitives.
 
 4. vertex shader -> tessellation -> geometry shader
 
